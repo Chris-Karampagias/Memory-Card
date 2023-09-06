@@ -1,0 +1,48 @@
+.deck {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: 100%;
+  place-items: center;
+  row-gap: 100px;
+}
+
+.image-container {
+  max-width: 200px;
+  padding: 20px 20px 50px 20px;
+  background: linear-gradient(45deg, #c3073f, #950740, #6f2232);
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.deck img {
+  border: 2px solid #4e4e50;
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.image-container:hover {
+  transform: scale(1.1);
+}
+
+.loading {
+  position: absolute;
+  color: white;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 50px;
+  opacity: 0;
+  animation: show 0.9s infinite ease-in-out alternate forwards;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
