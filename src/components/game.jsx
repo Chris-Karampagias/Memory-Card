@@ -10,7 +10,9 @@ export default function Game() {
   const [imageIds, setImageIds] = useState([]);
 
   function handleClick(selectedImage) {
-    const found = images.find((image) => imageIds.includes(image.id));
+    const found = images.find(
+      (image) => imageIds.includes(image.id) && selectedImage.id === image.id
+    );
     if (found) {
       setStatus("end");
       return;
@@ -34,7 +36,10 @@ export default function Game() {
   }, []);
   return (
     <div className="game-container">
-      {status === "playing" && (
+      {status === "playing" && images.length === 0 && (
+        <div className="loading">Loading...</div>
+      )}
+      {status === "playing" && images.length > 0 && (
         <>
           <Score images={images} imageIds={imageIds} />
           <Deck images={images} markClicked={handleClick} />
