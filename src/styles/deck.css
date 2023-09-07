@@ -12,18 +12,40 @@
   background: linear-gradient(45deg, #c3073f, #950740, #6f2232);
   border-radius: 15px;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
 }
 
 .deck img {
   border: 2px solid #4e4e50;
-  width: 100%;
+  width: 200px;
   aspect-ratio: 1/1;
   object-fit: cover;
 }
 
-.image-container:hover {
-  transform: scale(1.1);
+/* Enter Transition */
+.rotate-enter {
+  transform: rotateY(0);
+}
+
+.rotate-enter-active {
+  transform: rotateY(180deg);
+  transition: transform 1s linear;
+}
+.rotate-enter-done {
+  transform: rotateY(180deg);
+}
+
+/* Exit Transition */
+.rotate-exit {
+  transform: rotateY(180deg);
+}
+
+.rotate-exit-active {
+  transform: rotateY(0deg);
+  transition: transform 1s linear;
+}
+
+.rotate-exit-done {
+  transform: rotateY(0deg);
 }
 
 @keyframes show {

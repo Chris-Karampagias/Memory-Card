@@ -9,6 +9,15 @@ export default function Game() {
   const [status, setStatus] = useState("playing");
   const [imageIds, setImageIds] = useState([]);
 
+  function shuffleImages(images) {
+    const newImages = [...images];
+    for (let i = newImages.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [newImages[i], newImages[j]] = [newImages[j], newImages[i]];
+    }
+    setImages(newImages);
+  }
+
   function handleClick(selectedImage) {
     const found = images.find(
       (image) => imageIds.includes(image.id) && selectedImage.id === image.id
@@ -42,7 +51,11 @@ export default function Game() {
       {status === "playing" && images.length > 0 && (
         <>
           <Score images={images} imageIds={imageIds} />
-          <Deck images={images} markClicked={handleClick} />
+          <Deck
+            images={images}
+            markClicked={handleClick}
+            shuffleImages={shuffleImages}
+          />
         </>
       )}
       {status === "end" && <Message />}
