@@ -70,7 +70,13 @@ export default function Game() {
       )}
       {status === "playing" && images.length > 0 && (
         <>
-          <Score count={count} />
+          <div className="instructions-score-container">
+            <h1 className="instructions">
+              Click on all the images to win, but don't click on the same image
+              twice!
+            </h1>
+            <Score count={count} />
+          </div>
           <Deck
             images={images}
             markClicked={handleClick}

@@ -3,7 +3,7 @@
   grid-template-columns: repeat(5, 1fr);
   width: 100%;
   place-items: center;
-  row-gap: 100px;
+  row-gap: 70px;
 }
 
 .image-container {
