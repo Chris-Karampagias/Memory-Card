@@ -1,0 +1,50 @@
+.message-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #3131312f;
+  border: 20px solid #c3073f;
+  border-radius: 20px;
+  height: 400px;
+  aspect-ratio: 2/1;
+  box-shadow: 0px 0px 20px rgba(128, 128, 128, 0.397);
+}
+
+.outcome {
+  background: linear-gradient(45deg, #c3073f, #950740, #6f2232);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h1 {
+  width: 50%;
+  height: 50%;
+}
+
+h1 {
+  font-size: 60px;
+  color: white;
+  text-align: center;
+}
+
+.restart {
+  padding: 20px;
+  font-size: 50px;
+  background: linear-gradient(45deg, #c3073f, #950740, #6f2232);
+  color: white;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  margin-bottom: 30px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.restart:hover {
+  transform: scale(1.05);
+}
