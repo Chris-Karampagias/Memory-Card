@@ -9,6 +9,7 @@ export default function Game() {
   const [status, setStatus] = useState("playing");
   const [imageIds, setImageIds] = useState([]);
   const [outcome, setOutcome] = useState("");
+  const [restart, setRestart] = useState(false);
   const count = imageIds.length;
 
   useEffect(() => {
@@ -19,6 +20,14 @@ export default function Game() {
       setOutcome("lost");
     }
   }, [count, status]);
+
+  function handleRestart() {
+    setImages([]);
+    setImageIds([]);
+    setStatus("playing");
+    setOutcome("");
+    setRestart((v) => !v);
+  }
 
   function shuffleImages(images) {
     const newImages = [...images];
@@ -53,7 +62,7 @@ export default function Game() {
       .then((result) => {
         setImages(result);
       });
-  }, []);
+  }, [restart]);
   return (
     <div className="game-container">
       {status === "playing" && images.length === 0 && (
@@ -69,7 +78,9 @@ export default function Game() {
           />
         </>
       )}
-      {status === "end" && <Message outcome={outcome} />}
+      {status === "end" && (
+        <Message outcome={outcome} handleRestart={handleRestart} />
+      )}
     </div>
   );
 }
