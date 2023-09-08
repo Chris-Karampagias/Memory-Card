@@ -1,9 +1,9 @@
 .game-container {
   display: flex;
   flex-direction: column;
-  place-items: center;
+  align-items: center;
+  justify-content: space-evenly;
   height: 100vh;
-  gap: 20px;
 }
 
 .instructions-score-container {
@@ -15,14 +15,16 @@
 .instructions {
   margin-left: 10px;
   text-align: start;
-  width: 40%;
+  width: 50%;
   font-size: 30px;
 }
 
 .score {
   color: white;
   font-size: 50px;
-  margin: 20px 30px 10px 0px;
+  width: 50%;
+  margin: 20px;
+  text-align: end;
 }
 
 .loading {
@@ -34,4 +36,33 @@
   font-size: 50px;
   opacity: 0;
   animation: show 0.9s infinite ease-in-out alternate forwards;
+}
+
+@media (max-width: 769px) {
+  .game-container {
+    height: 100%;
+    gap: 30px;
+  }
+
+  .instructions {
+    font-size: 25px;
+  }
+
+  .score {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 464px) {
+  .game-container {
+    width: 100vw;
+  }
+
+  .instructions {
+    font-size: 15px;
+  }
+
+  .score {
+    font-size: 35px;
+  }
 }

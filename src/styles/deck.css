@@ -2,12 +2,15 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   width: 100%;
+  min-height: 500px;
   place-items: center;
   row-gap: 70px;
+  column-gap: 40px;
+  margin-bottom: 30px;
 }
 
 .image-container {
-  max-width: 200px;
+  max-width: 300px;
   padding: 20px 20px 50px 20px;
   background: linear-gradient(45deg, #c3073f, #950740, #6f2232);
   border-radius: 15px;
@@ -16,7 +19,7 @@
 
 .deck img {
   border: 2px solid #4e4e50;
-  width: 200px;
+  width: 100%;
   aspect-ratio: 1/1;
   object-fit: cover;
 }
@@ -57,5 +60,17 @@
 
   to {
     opacity: 1;
+  }
+}
+
+@media (max-width: 769px) {
+  .deck {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    margin-bottom: 50px;
+  }
+
+  .image-container {
+    padding: 10px 10px 30px 10px;
   }
 }

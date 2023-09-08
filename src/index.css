@@ -9,3 +9,15 @@ body {
   height: 100vh;
   overflow: hidden;
 }
+
+@media (max-width: 769px) {
+  body {
+    overflow: scroll;
+  }
+}
+
+@media (max-width: 434px) {
+  body {
+    position: absolute;
+  }
+}
