@@ -8,6 +8,17 @@ export default function Game() {
   const [images, setImages] = useState([]);
   const [status, setStatus] = useState("playing");
   const [imageIds, setImageIds] = useState([]);
+  const [outcome, setOutcome] = useState("");
+  const count = imageIds.length;
+
+  useEffect(() => {
+    if (count === 10) {
+      setStatus("end");
+      setOutcome("won");
+    } else if (count < 10 && status === "end") {
+      setOutcome("lost");
+    }
+  }, [count, status]);
 
   function shuffleImages(images) {
     const newImages = [...images];
@@ -50,7 +61,7 @@ export default function Game() {
       )}
       {status === "playing" && images.length > 0 && (
         <>
-          <Score images={images} imageIds={imageIds} />
+          <Score count={count} />
           <Deck
             images={images}
             markClicked={handleClick}
@@ -58,7 +69,7 @@ export default function Game() {
           />
         </>
       )}
-      {status === "end" && <Message />}
+      {status === "end" && <Message outcome={outcome} />}
     </div>
   );
 }
