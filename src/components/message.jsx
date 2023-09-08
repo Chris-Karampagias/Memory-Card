@@ -1,13 +1,11 @@
 /* eslint-disable react/prop-types */
 import "../styles/message.css";
-import { useState } from "react";
 import { CSSTransition } from "react-transition-group";
 
 export default function Message({ outcome, handleRestart }) {
-  const [isIn, setIsIn] = useState(false);
   return (
     <>
-      <CSSTransition in={isIn} timeout={1000} classNames="reveal">
+      <CSSTransition in={true} timeout={1500} classNames="reveal" appear>
         <div className="message-container">
           <h1>
             You <span className="outcome">{outcome}</span>!
@@ -16,7 +14,6 @@ export default function Message({ outcome, handleRestart }) {
             className="restart"
             onClick={() => {
               handleRestart();
-              setIsIn(true);
             }}
           >
             Restart
