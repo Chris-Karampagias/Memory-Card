@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import "../styles/deck.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Tilt from "react-parallax-tilt";
 import { CSSTransition } from "react-transition-group";
 
